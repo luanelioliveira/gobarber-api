@@ -1,6 +1,6 @@
 package com.luanelioliveira.gobarber.ui.rest.errors;
 
-import com.luanelioliveira.gobarber.infrastructure.valueobjects.exceptions.BusinessException;
+import com.luanelioliveira.gobarber.domain.usecases.exceptions.BusinessException;
 import com.luanelioliveira.gobarber.infrastructure.valueobjects.exceptions.NotFoundException;
 import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;

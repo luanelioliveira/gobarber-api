@@ -1,6 +1,6 @@
-package com.luanelioliveira.gobarber.domain.valueobjects.exceptions;
+package com.luanelioliveira.gobarber.application.exceptions;
 
-import com.luanelioliveira.gobarber.infrastructure.valueobjects.exceptions.BusinessException;
+import com.luanelioliveira.gobarber.domain.usecases.exceptions.BusinessException;
 
 public class CustomerAlreadyExistsException extends BusinessException {
 

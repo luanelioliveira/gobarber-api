@@ -1,4 +1,4 @@
-package com.luanelioliveira.gobarber.application.customer.queries;
+package com.luanelioliveira.gobarber.domain.usecases.requests;
 
 import java.util.UUID;
 import lombok.Builder;
@@ -6,6 +6,6 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class GetCustomerByIdQuery {
+public class GetCustomerByIdRequest {
   private UUID id;
 }

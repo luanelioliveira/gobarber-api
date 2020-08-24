@@ -1,4 +1,4 @@
-package com.luanelioliveira.gobarber.domain.valueobjects.exceptions;
+package com.luanelioliveira.gobarber.application.exceptions;
 
 import com.luanelioliveira.gobarber.infrastructure.valueobjects.exceptions.NotFoundException;
 

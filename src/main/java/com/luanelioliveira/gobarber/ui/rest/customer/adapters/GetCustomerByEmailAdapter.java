@@ -1,10 +1,10 @@
 package com.luanelioliveira.gobarber.ui.rest.customer.adapters;
 
-import com.luanelioliveira.gobarber.application.customer.queries.GetCustomerByEmailQuery;
+import com.luanelioliveira.gobarber.domain.usecases.requests.GetCustomerByEmailRequest;
 
 public class GetCustomerByEmailAdapter {
 
-  public static GetCustomerByEmailQuery toQuery(String email) {
-    return GetCustomerByEmailQuery.builder().email(email).build();
+  public static GetCustomerByEmailRequest toQuery(String email) {
+    return GetCustomerByEmailRequest.builder().email(email).build();
   }
 }
