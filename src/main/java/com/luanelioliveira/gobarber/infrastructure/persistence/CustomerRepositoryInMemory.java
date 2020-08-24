@@ -1,7 +1,7 @@
 package com.luanelioliveira.gobarber.infrastructure.persistence;
 
-import com.luanelioliveira.gobarber.domain.entities.Customer;
-import com.luanelioliveira.gobarber.domain.entities.CustomerRepository;
+import com.luanelioliveira.gobarber.domain.entity.Customer;
+import com.luanelioliveira.gobarber.domain.entity.CustomerRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
