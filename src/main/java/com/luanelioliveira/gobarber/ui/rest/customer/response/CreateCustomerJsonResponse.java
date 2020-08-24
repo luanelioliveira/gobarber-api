@@ -1,6 +1,6 @@
 package com.luanelioliveira.gobarber.ui.rest.customer.response;
 
-import com.luanelioliveira.gobarber.domain.usecases.responses.CreateCustomerResponse;
+import com.luanelioliveira.gobarber.domain.usecase.response.CreateCustomerResponse;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;

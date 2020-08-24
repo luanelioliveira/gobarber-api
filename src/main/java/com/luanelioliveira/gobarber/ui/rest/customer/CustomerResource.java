@@ -1,15 +1,17 @@
 package com.luanelioliveira.gobarber.ui.rest.customer;
 
-import com.luanelioliveira.gobarber.domain.usecases.CreateCustomer;
-import com.luanelioliveira.gobarber.domain.usecases.GetCustomerByEmail;
-import com.luanelioliveira.gobarber.domain.usecases.GetCustomerById;
-import com.luanelioliveira.gobarber.ui.rest.customer.adapters.CreateCustomerAdapter;
-import com.luanelioliveira.gobarber.ui.rest.customer.adapters.GetCustomerByEmailAdapter;
-import com.luanelioliveira.gobarber.ui.rest.customer.adapters.GetCustomerByIdAdapter;
-import com.luanelioliveira.gobarber.ui.rest.customer.presenters.CreateCustomerResponsePresenter;
-import com.luanelioliveira.gobarber.ui.rest.customer.presenters.GetCustomerByEmailResponsePresenter;
-import com.luanelioliveira.gobarber.ui.rest.customer.presenters.GetCustomerByIdResponsePresenter;
-import com.luanelioliveira.gobarber.ui.rest.customer.requests.CreateCustomerPayload;
+import com.luanelioliveira.gobarber.domain.usecase.CreateCustomer;
+import com.luanelioliveira.gobarber.domain.usecase.GetCustomerByEmail;
+import com.luanelioliveira.gobarber.domain.usecase.GetCustomerById;
+import com.luanelioliveira.gobarber.domain.usecase.request.GetCustomerByEmailRequest;
+import com.luanelioliveira.gobarber.domain.usecase.request.GetCustomerByIdRequest;
+import com.luanelioliveira.gobarber.ui.rest.customer.mapper.CreateCustomerMapper;
+import com.luanelioliveira.gobarber.ui.rest.customer.mapper.GetCustomerByEmailMapper;
+import com.luanelioliveira.gobarber.ui.rest.customer.mapper.GetCustomerByIdMapper;
+import com.luanelioliveira.gobarber.ui.rest.customer.presenter.CreateCustomerResponsePresenter;
+import com.luanelioliveira.gobarber.ui.rest.customer.presenter.GetCustomerByEmailResponsePresenter;
+import com.luanelioliveira.gobarber.ui.rest.customer.presenter.GetCustomerByIdResponsePresenter;
+import com.luanelioliveira.gobarber.ui.rest.customer.request.CreateCustomerPayload;
 import com.luanelioliveira.gobarber.ui.rest.customer.response.CreateCustomerJsonResponse;
 import com.luanelioliveira.gobarber.ui.rest.customer.response.GetCustomerByEmailJsonResponse;
 import com.luanelioliveira.gobarber.ui.rest.customer.response.GetCustomerByIdJsonResponse;
@@ -34,22 +36,28 @@ public class CustomerResource {
 
   @GetMapping("{id}")
   public GetCustomerByIdJsonResponse getCustomerById(@PathVariable UUID id) {
-    final GetCustomerByIdResponsePresenter presenter = new GetCustomerByIdResponsePresenter();
-    getCustomerById.execute(GetCustomerByIdAdapter.toQuery(id), presenter);
+    final var request = GetCustomerByIdMapper.toRequest(id);
+    final var presenter = new GetCustomerByIdResponsePresenter();
+
+    getCustomerById.execute(request, presenter);
     return presenter.getJsonResponse();
   }
 
   @GetMapping
   public GetCustomerByEmailJsonResponse getCustomerByEmail(@RequestParam String email) {
-    final GetCustomerByEmailResponsePresenter presenter = new GetCustomerByEmailResponsePresenter();
-    getCustomerByEmail.execute(GetCustomerByEmailAdapter.toQuery(email), presenter);
+    final var request = GetCustomerByEmailMapper.toRequest(email);
+    final var presenter = new GetCustomerByEmailResponsePresenter();
+
+    getCustomerByEmail.execute(request, presenter);
     return presenter.getJsonResponse();
   }
 
   @PostMapping
   public CreateCustomerJsonResponse createNewCustomer(@RequestBody CreateCustomerPayload payload) {
-    final CreateCustomerResponsePresenter presenter = new CreateCustomerResponsePresenter();
-    createHandler.execute(CreateCustomerAdapter.toRequest(payload), presenter);
+    final var request = CreateCustomerMapper.toRequest(payload);
+    final var presenter = new CreateCustomerResponsePresenter();
+
+    createHandler.execute(request, presenter);
     return presenter.getJsonResponse();
   }
 }
