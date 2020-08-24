@@ -1,7 +1,8 @@
 package com.luanelioliveira.gobarber.ui.rest.customer;
 
 import com.luanelioliveira.gobarber.application.customer.commands.CreateCustomerCommandHandler;
-import com.luanelioliveira.gobarber.application.customer.queries.GetCustomerQueryHandler;
+import com.luanelioliveira.gobarber.application.customer.queries.GetCustomerByEmailQueryHandler;
+import com.luanelioliveira.gobarber.application.customer.queries.GetCustomerByIdQueryHandler;
 import com.luanelioliveira.gobarber.domain.entities.Customer;
 import com.luanelioliveira.gobarber.ui.rest.customer.adapters.CreateCustomerAdapter;
 import com.luanelioliveira.gobarber.ui.rest.customer.adapters.GetCustomerByEmailAdapter;
@@ -23,16 +24,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class CustomerResource {
 
   private final CreateCustomerCommandHandler createHandler;
-  private final GetCustomerQueryHandler queryHandler;
+  private final GetCustomerByIdQueryHandler getCustomerById;
+  private final GetCustomerByEmailQueryHandler getCustomerByEmail;
 
   @GetMapping("{id}")
   public Customer getCustomerById(@PathVariable UUID id) {
-    return queryHandler.query(GetCustomerByIdAdapter.toQuery(id));
+    return getCustomerById.execute(GetCustomerByIdAdapter.toQuery(id));
   }
 
   @GetMapping
   public Customer getCustomerByEmail(@RequestParam String email) {
-    return queryHandler.query(GetCustomerByEmailAdapter.toQuery(email));
+    return getCustomerByEmail.execute(GetCustomerByEmailAdapter.toQuery(email));
   }
 
   @PostMapping

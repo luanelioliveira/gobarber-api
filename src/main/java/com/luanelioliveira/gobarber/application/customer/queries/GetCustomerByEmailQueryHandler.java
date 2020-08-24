@@ -6,26 +6,15 @@ import com.luanelioliveira.gobarber.domain.valueobjects.exceptions.CustomerNotFo
 import javax.inject.Named;
 
 @Named
-public class GetCustomerQueryHandler {
+public class GetCustomerByEmailQueryHandler {
 
   private final CustomerRepository repository;
 
-  public GetCustomerQueryHandler(CustomerRepository repository) {
+  public GetCustomerByEmailQueryHandler(CustomerRepository repository) {
     this.repository = repository;
   }
 
-  public Customer query(GetCustomerByIdQuery query) {
-
-    var id = query.getId();
-    Customer customer =
-        repository
-            .findById(id)
-            .orElseThrow(() -> new CustomerNotFoundException("Customer not found for id " + id));
-
-    return customer;
-  }
-
-  public Customer query(GetCustomerByEmailQuery query) {
+  public Customer execute(GetCustomerByEmailQuery query) {
 
     var email = query.getEmail();
     Customer customer =
