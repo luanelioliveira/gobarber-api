@@ -1,4 +1,4 @@
-package com.luanelioliveira.gobarber.application.customer.events;
+package com.luanelioliveira.gobarber.application.events;
 
 import com.luanelioliveira.gobarber.domain.entities.Customer;
 import java.time.LocalDateTime;

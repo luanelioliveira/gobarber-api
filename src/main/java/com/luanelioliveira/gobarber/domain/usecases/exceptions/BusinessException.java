@@ -1,4 +1,4 @@
-package com.luanelioliveira.gobarber.infrastructure.valueobjects.exceptions;
+package com.luanelioliveira.gobarber.domain.usecases.exceptions;
 
 public class BusinessException extends RuntimeException {
 
