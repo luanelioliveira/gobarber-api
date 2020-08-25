@@ -33,4 +33,9 @@ public class CustomerRepositoryInMemory implements CustomerRepository {
   public List<Customer> findAll() {
     return customers;
   }
+
+  @Override
+  public void deleteById(UUID id) {
+    customers.removeIf(customer -> id.equals(customer.getId()));
+  }
 }
