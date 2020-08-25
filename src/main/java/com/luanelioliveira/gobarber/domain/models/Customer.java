@@ -17,6 +17,8 @@ public class Customer {
   private UUID id;
   private String name;
   private String email;
+  private LocalDateTime createdAt;
+  private LocalDateTime updatedAt;
 
   private Customer() {}
 
@@ -31,6 +33,8 @@ public class Customer {
         .id(UUID.randomUUID())
         .name(name)
         .email(email)
+        .createdAt(LocalDateTime.now())
+        .updatedAt(LocalDateTime.now())
         .build();
   }
 }
