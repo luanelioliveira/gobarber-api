@@ -11,11 +11,9 @@ public abstract class Event {
 
   private UUID id;
   private LocalDateTime createdAt;
-  private Object message;
 
-  public Event(Object message) {
+  public Event() {
     this.id = UUID.randomUUID();
     this.createdAt = LocalDateTime.now();
-    this.message = message;
   }
 }
