@@ -33,12 +33,6 @@ public class CreateCustomerHandler implements CreateCustomer {
   }
 
   private void validate(CreateCustomerRequest request) {
-    if (request.getName() == null || request.getName().trim().isEmpty())
-      throw new NameEmptyException();
-
-    if (request.getEmail() == null || request.getEmail().trim().isEmpty())
-      throw new EmailEmptyException();
-
     if (repository.findByEmail(request.getEmail()).isPresent())
       throw new CustomerAlreadyExistsException();
   }

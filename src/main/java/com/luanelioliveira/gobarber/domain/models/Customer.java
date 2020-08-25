@@ -1,11 +1,17 @@
 package com.luanelioliveira.gobarber.domain.models;
 
+import com.luanelioliveira.gobarber.domain.valueobjects.exceptions.EmailEmptyException;
+import com.luanelioliveira.gobarber.domain.valueobjects.exceptions.NameEmptyException;
+import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.UUID;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 
 @Getter
 @ToString
+@Builder
 public class Customer {
 
   private UUID id;
@@ -15,10 +21,16 @@ public class Customer {
   private Customer() {}
 
   public static Customer newCustomer(String name, String email) {
-    Customer customer = new Customer();
-    customer.id = UUID.randomUUID();
-    customer.name = name;
-    customer.email = email;
-    return customer;
+    if (Objects.isNull(name) || name.trim().isEmpty())
+      throw new NameEmptyException();
+
+    if (Objects.isNull(email) || email.trim().isEmpty())
+      throw new EmailEmptyException();
+
+    return Customer.builder()
+        .id(UUID.randomUUID())
+        .name(name)
+        .email(email)
+        .build();
   }
 }
