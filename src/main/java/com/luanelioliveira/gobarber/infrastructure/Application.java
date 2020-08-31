@@ -1,12 +1,12 @@
-package com.luanelioliveira.gobarber;
+package com.luanelioliveira.gobarber.infrastructure;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GoBarberApplication {
+public class Application {
 
   public static void main(String[] args) {
-    SpringApplication.run(GoBarberApplication.class, args);
+    SpringApplication.run(Application.class, args);
   }
 }
