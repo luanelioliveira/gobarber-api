@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 
 @Named
 @RequiredArgsConstructor
-public class RegisterAccountHandler implements RegisterAccount {
+public class RegisterAccountCommandHandler implements RegisterAccount {
 
   private final AccountRepository repository;
 

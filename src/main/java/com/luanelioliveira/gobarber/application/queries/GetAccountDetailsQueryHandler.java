@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 
 @Named
 @RequiredArgsConstructor
-public class GetAccountDetailsHandler implements GetAccountDetails {
+public class GetAccountDetailsQueryHandler implements GetAccountDetails {
 
   private final AccountRepository repository;
 
