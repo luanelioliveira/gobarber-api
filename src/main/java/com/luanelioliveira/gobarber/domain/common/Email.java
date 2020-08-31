@@ -13,4 +13,8 @@ public class Email {
 
     this.value = value;
   }
+
+  public String toString() {
+    return value;
+  }
 }

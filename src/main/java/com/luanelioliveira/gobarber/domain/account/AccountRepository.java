@@ -1,6 +1,5 @@
 package com.luanelioliveira.gobarber.domain.account;
 
-import com.luanelioliveira.gobarber.domain.common.Email;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -10,7 +9,7 @@ import lombok.Getter;
 public interface AccountRepository {
   Account add(Account account);
 
-  Optional<Account> withEmail(Email email);
+  Optional<Account> withEmail(String email);
 
   Optional<Account> withId(UUID id);
 

@@ -31,7 +31,7 @@ public class RegisterAccountCommandHandler implements RegisterAccount {
   private void validate(RegisterAccountCommand command) {
     var email = new Email(command.getEmail());
 
-    if (repository.withEmail(email).isPresent())
+    if (repository.withEmail(email.toString()).isPresent())
       throw new BusinessException("Account already exists");
   }
 }

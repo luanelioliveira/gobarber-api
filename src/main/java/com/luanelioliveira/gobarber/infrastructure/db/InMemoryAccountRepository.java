@@ -2,7 +2,6 @@ package com.luanelioliveira.gobarber.infrastructure.db;
 
 import com.luanelioliveira.gobarber.domain.account.Account;
 import com.luanelioliveira.gobarber.domain.account.AccountRepository;
-import com.luanelioliveira.gobarber.domain.common.Email;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -25,11 +24,11 @@ public class InMemoryAccountRepository implements AccountRepository {
   }
 
   @Override
-  public Optional<Account> withEmail(Email email) {
+  public Optional<Account> withEmail(String email) {
     return ACCOUNTS
         .values()
         .stream()
-        .filter(account -> email.equals(account.getEmail()))
+        .filter(account -> email.equals(account.getEmail().getValue()))
         .findFirst();
   }
 

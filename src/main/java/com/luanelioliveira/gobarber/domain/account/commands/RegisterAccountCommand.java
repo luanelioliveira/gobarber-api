@@ -1,12 +1,12 @@
 package com.luanelioliveira.gobarber.domain.account.commands;
 
 import com.luanelioliveira.gobarber.domain.base.Command;
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
-@Builder
+@AllArgsConstructor(staticName = "of")
 public class RegisterAccountCommand implements Command<RegisterAccountResult> {
-  private String name;
-  private String email;
+  private final String name;
+  private final String email;
 }

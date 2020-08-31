@@ -32,7 +32,7 @@ public class AccountController {
   public GetAccountDetailsJsonResponse getAccountDetails(@PathVariable UUID accountId) {
     final var presenter = new GetAccountDetailsPresenter();
 
-    getAccountDetails.handle(new GetAccountDetailsQuery(accountId), presenter);
+    getAccountDetails.handle(GetAccountDetailsQuery.of(accountId), presenter);
     return presenter.getJsonResponse();
   }
 

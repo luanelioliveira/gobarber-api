@@ -9,6 +9,6 @@ public class RegisterAccountPayload {
   private String email;
 
   public RegisterAccountCommand toCommand() {
-    return RegisterAccountCommand.builder().name(this.name).email(this.email).build();
+    return RegisterAccountCommand.of(this.name, this.email);
   }
 }

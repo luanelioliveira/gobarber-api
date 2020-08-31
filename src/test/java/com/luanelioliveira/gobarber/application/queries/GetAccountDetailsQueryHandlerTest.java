@@ -27,15 +27,15 @@ public class GetAccountDetailsQueryHandlerTest {
 
   @Mock private AccountRepository accountRepository;
 
-  @InjectMocks private GetAccountDetailsQueryHandler handler;
+  @InjectMocks private GetAccountDetailsQueryHandler getAccountDetailsQueryHandler;
 
   @Test
   public void shouldReturnAccountWhenGetAccountDetails() {
     when(accountRepository.withId(ACCOUNT_ID)).thenReturn(Optional.of(ACCOUNT));
-    var query = new GetAccountDetailsQuery(ACCOUNT_ID);
+    var query = GetAccountDetailsQuery.of(ACCOUNT_ID);
     var result = new GetAccountDetailsPresenter();
 
-    handler.handle(query, result);
+    getAccountDetailsQueryHandler.handle(query, result);
 
     assertThat(result.getJsonResponse().getId()).isEqualTo(ACCOUNT_ID);
     assertThat(result.getJsonResponse().getName()).isEqualTo(ACCOUNT_NAME);
@@ -45,9 +45,9 @@ public class GetAccountDetailsQueryHandlerTest {
   @Test(expected = EntityNotFoundException.class)
   public void shouldThrowExceptionWhenGetAccountDetailsNotFound() {
     when(accountRepository.withId(ACCOUNT_ID)).thenReturn(Optional.empty());
-    var query = new GetAccountDetailsQuery(ACCOUNT_ID);
+    var query = GetAccountDetailsQuery.of(ACCOUNT_ID);
     var result = new GetAccountDetailsPresenter();
 
-    handler.handle(query, result);
+    getAccountDetailsQueryHandler.handle(query, result);
   }
 }
