@@ -10,7 +10,7 @@ public class GetAccountDetailsPresenter implements Consumer<GetAccountDetailsRes
   private GetAccountDetailsJsonResponse jsonResponse;
 
   @Override
-  public void accept(GetAccountDetailsResult response) {
-    jsonResponse = new GetAccountDetailsJsonResponse(response);
+  public void accept(GetAccountDetailsResult result) {
+    jsonResponse = new GetAccountDetailsJsonResponse(result);
   }
 }

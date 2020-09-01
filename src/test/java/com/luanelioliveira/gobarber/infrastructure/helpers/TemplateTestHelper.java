@@ -1,4 +1,4 @@
-package com.luanelioliveira.gobarber.infrastructure.config;
+package com.luanelioliveira.gobarber.infrastructure.helpers;
 
 import com.luanelioliveira.gobarber.domain.account.Account;
 import com.luanelioliveira.gobarber.domain.common.Email;
@@ -6,6 +6,10 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class TemplateTestHelper {
+
+  public static Account getAccount(String name, String email) {
+    return getAccountBuilder().name(name).email(new Email(email)).build();
+  }
 
   public static Account getAccount() {
     return getAccountBuilder().build();

@@ -10,7 +10,7 @@ public class RegisterAccountPresenter implements Consumer<RegisterAccountResult>
   private RegisterAccountJsonResponse jsonResponse;
 
   @Override
-  public void accept(RegisterAccountResult response) {
-    jsonResponse = new RegisterAccountJsonResponse(response);
+  public void accept(RegisterAccountResult result) {
+    jsonResponse = new RegisterAccountJsonResponse(result);
   }
 }

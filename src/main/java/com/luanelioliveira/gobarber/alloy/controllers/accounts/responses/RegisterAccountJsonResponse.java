@@ -13,9 +13,9 @@ public class RegisterAccountJsonResponse {
   private final String name;
   private final String email;
 
-  public RegisterAccountJsonResponse(final RegisterAccountResult response) {
-    this.id = response.getId();
-    this.name = response.getName();
-    this.email = response.getEmail();
+  public RegisterAccountJsonResponse(final RegisterAccountResult result) {
+    this.id = result.getId();
+    this.name = result.getName();
+    this.email = result.getEmail();
   }
 }

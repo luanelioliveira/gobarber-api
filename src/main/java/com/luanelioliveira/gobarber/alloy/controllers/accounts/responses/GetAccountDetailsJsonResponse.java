@@ -13,9 +13,9 @@ public class GetAccountDetailsJsonResponse {
   private final String name;
   private final String email;
 
-  public GetAccountDetailsJsonResponse(final GetAccountDetailsResult response) {
-    this.id = response.getId();
-    this.name = response.getName();
-    this.email = response.getEmail();
+  public GetAccountDetailsJsonResponse(final GetAccountDetailsResult result) {
+    this.id = result.getId();
+    this.name = result.getName();
+    this.email = result.getEmail();
   }
 }
