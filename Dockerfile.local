@@ -1,0 +1,4 @@
+FROM adoptopenjdk/openjdk11-openj9:alpine-jre
+ARG JAR_FILE
+ADD target/${JAR_FILE} ./app.jar
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=dev -jar app.jar"]
